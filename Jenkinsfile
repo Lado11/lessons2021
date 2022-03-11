@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('web server') {
+    stage('in nodejs') {
       parallel {
         stage('in nodejs') {
           agent any
@@ -12,8 +12,7 @@ pipeline {
 
         stage('in python') {
           steps {
-            sleep 1
-            error 'error'
+            sleep 5
           }
         }
 
