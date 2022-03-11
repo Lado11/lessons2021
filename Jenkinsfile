@@ -13,6 +13,7 @@ pipeline {
         stage('in python') {
           steps {
             sleep 1
+            error 'error'
           }
         }
 
