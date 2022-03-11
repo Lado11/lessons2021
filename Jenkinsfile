@@ -12,7 +12,7 @@ pipeline {
 
         stage('in python') {
           steps {
-            node(label: 'sd')
+            sleep 1
           }
         }
 
