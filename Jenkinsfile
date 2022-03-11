@@ -1,39 +1,27 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      steps {
-        git(url: 'https://github.com/lessons2021/VladimirBaghdasaryan.git', branch: 'main', changelog: true, poll: true)
-      }
-    }
-
-    stage('Run Test') {
+    stage('web server') {
       parallel {
-        stage('Run Test') {
-          steps {
-            git(url: 'https://github.com/lessons2021/VladimirBaghdasaryan.git', branch: 'main')
-          }
-        }
-
-        stage('Test of linux') {
+        stage('in nodejs') {
           agent any
           steps {
-            git(url: 'https://github.com/lessons2021/VladimirBaghdasaryan.git', branch: 'main')
+            sleep 5
+          }
+        }
+
+        stage('in python') {
+          steps {
+            node(label: 'sd')
           }
         }
 
       }
     }
 
-    stage('Deploy') {
+    stage('create') {
       steps {
-        git(url: 'https://github.com/lessons2021/VladimirBaghdasaryan.git', branch: 'main')
-      }
-    }
-
-    stage('End') {
-      steps {
-        git(url: 'https://github.com/lessons2021/VladimirBaghdasaryan.git', branch: 'main')
+        sleep 1
       }
     }
 
